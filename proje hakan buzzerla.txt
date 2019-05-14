@@ -1,0 +1,26 @@
+^#iclude<dht11.h>//kütüphane sýcaklýk sensörü
+dht11 DHT; //kütüphaen fonk
+^#define DHT11_PIN 6 //DHT 11 SÝÝNYAL PÝNÝ DÝJÝTAL 6
+const int buzzer=5; // buzzer sinyal pini 
+int sicaklik; //sýcaklýk deðiþkeni 
+void setup()
+{
+  Serial.begin(9600);// seri  baðlantý hýzý 
+  pinMode(buzzer ,OUTPUT); // buzzer çýkýþý
+  beep(50);
+  delay(1000);
+}
+void loop()
+{
+  sicaklik=DHT.read(DHT11_PIN); // sýcsaklýk deðeri okunuyor 
+ Serial.print("Sicalik:\t"); // boþluk karakteri
+ delay(300);
+ if(DHT.temperature>24)
+ {beep(200);
+ digitalWrite(buzzer,High)
+ delay(delayms);
+ }
+ else {digitalWrite(buzzer,Low)
+ delay(delayms);
+ }
+}
